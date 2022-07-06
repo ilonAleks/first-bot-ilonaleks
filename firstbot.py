@@ -1,56 +1,10 @@
 import json
 import telebot
-# import requests as req
-# from os import environ
 from telebot import types
 from telebot import apihelper
-# from geopy import geocoders
 apihelper.ENABLE_MIDDLEWARE = True
-#apihelper.proxy = {'http':'http://10.10.1.10:3128'}
-#или вариант с socks5
-# apihelper.proxy = {'https':'socks5://userproxy:password@proxy_address:port'}
 
 bot = telebot.TeleBot('5332125448:AAEpFaZX2m4i1lVTXbiHb_658b3HflSo0sU')
-# token_accu = environ['kaerAl70bhdlLqleLK0nHE08abqsdC27']
-#
-# def geo_pos(city: str):
-#     geolocator = geocoders.Nominatim(user_agent="telebot")
-#     latitude = str(geolocator.geocode(city).latitude)
-#     longitude = str(geolocator.geocode(city).longitude)
-#     return latitude, longitude
-#
-# def code_location(latitude: str, longitude: str, token_accu: str):
-#     url_location_key = f'http://dataservice.accuweather.com/locations/v1/cities/geoposition/search?apikey={token_accu}&q={latitude},{longitude}&language=ru'
-#     resp_loc = req.get(url_location_key, headers={"APIKey": token_accu})
-#     json_data = json.loads(resp_loc.text)
-#     code = json_data['Key']
-#     return code
-#
-# def weather(cod_loc: str, token_accu: str):
-#     url_weather = f'http://dataservice.accuweather.com/forecasts/v1/hourly/12hour/{cod_loc}?apikey={token_accu}&language=ru&metric=True'
-#     response = req.get(url_weather, headers={"APIKey": token_accu})
-#     json_data = json.loads(response.text)
-#     dict_weather = dict()
-#     dict_weather['link'] = json_data[0]['MobileLink']
-#     dict_weather['сейчас'] = {'temp': json_data[0]['Temperature']['Value'], 'sky': json_data[0]['IconPhrase']}
-#     for i in range(len(json_data):1:):
-#         time = 'через' + str(i) + 'ч'
-#         dict_weather[time] = {'temp': json_data[i]['Temperature']['Value'], 'sky': json_data[i]['IconPhrase']}
-# return dict_weather
-#
-#
-# def print_weather(dict_weather, message):
-#     bot.send_message(message.from_user.id, f'Разрешите доложить, Ваше сиятельство!'
-#                                            f' Температура сейчас {dict_weather["сейчас"]["temp"]}!'
-#                                            f' А на небе {dict_weather["сейчас"]["sky"]}.'
-#                                            f' Температура через три часа {dict_weather["через3ч"]["temp"]}!'
-#                                            f' А на небе {dict_weather["через3ч"]["sky"]}.'
-#                                            f' Температура через шесть часов {dict_weather["через6ч"]["temp"]}!'
-#                                            f' А на небе {dict_weather["через6ч"]["sky"]}.'
-#                                            f' Температура через девять часов {dict_weather["через9ч"]["temp"]}!'
-#                                            f' А на небе {dict_weather["через9ч"]["sky"]}.')
-#     bot.send_message(message.from_user.id, f' А здесь ссылка на подробности '
-#                                            f'{dict_weather["link"]}')
 
 @bot.message_handler(commands=['start'])
 def start(message):
